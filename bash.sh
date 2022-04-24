@@ -384,3 +384,19 @@ else
     echo "$HOME/go/bin/iback Added"
     echo "You need tor network install"
 fi
+
+if ! [ -x "$(command -v xfce4)" ]; then
+    echo "Installing xfce4"
+    sudo apt -y install xfce4 xfce4-goodies >&2
+    echo "Successfully installed xfce4"
+else
+    echo "Alreday installed xfce4"
+fi
+
+if test -f "$HOME/nomachine_7.7.4_1_amd64.deb"; then
+    echo "Downloading NoMachine"
+    wget https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb -O $HOME/nomachine_7.7.4_1_amd64.deb >> /dev/null
+    echo "Downloaded NoMachine"
+else
+    echo "Alreday download NoMachine"
+fi
