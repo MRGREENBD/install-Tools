@@ -3,6 +3,7 @@
 
 
 echo  "Bug Bounty Tools Installer"
+export GO111MODULE="auto"
 
 
 if ! [ -d "$HOME/Tools/" ]; then
@@ -338,13 +339,13 @@ if ! [ -x "$(command -v uro)" ]; then
 else
     echo "Alreday installed uro"
 fi
-if ! [ -x "$(command -v firefox)" ]; then
-    echo "Installing firefox"
-    sudo apt -y install firefox >&2
-    echo "Successfully installed firefox"
-else
-    echo "Alreday installed firefox"
-fi
+#if ! [ -x "$(command -v firefox)" ]; then
+#    echo "Installing firefox"
+#    sudo apt -y install firefox >&2
+#    echo "Successfully installed firefox"
+#else
+#    echo "Alreday installed firefox"
+#fi
 if ! [ -x "$(command -v assetfinder)" ]; then
     echo "Installing assetfinder"
     go get -u github.com/tomnomnom/assetfinder >&2
@@ -420,13 +421,13 @@ else
     echo "$HOME/go/bin/Revers Added"
 fi
 
-if ! [ -x "$(command -v xfce4)" ]; then
-    echo "Installing xfce4"
-    sudo apt -y install xfce4 xfce4-goodies >&2
-    echo "Successfully installed xfce4"
-else
-    echo "Alreday installed xfce4"
-fi
+#if ! [ -x "$(command -v xfce4)" ]; then
+#    echo "Installing xfce4"
+#    sudo apt -y install xfce4 xfce4-goodies >&2
+#    echo "Successfully installed xfce4"
+#else
+#    echo "Alreday installed xfce4"
+#fi
 
 if ! test -f "$HOME/nomachine_7.7.4_1_amd64.deb"; then
     echo "Downloading NoMachine"
