@@ -82,7 +82,6 @@ fi
 if ! [ -x "$(command -v sqlmap)" ]; then
     echo "Installing sqlmap"
     sudo apt -y install sqlmap >&2
-    sudo sqlmap --update <<< y
     echo "Successfully installed sqlmap"
 else
     echo "Alreday installed sqlmap"
@@ -437,12 +436,12 @@ fi
 #    echo "Alreday installed xfce4"
 #fi
 
-if ! test -f "$HOME/nomachine_7.7.4_1_amd64.deb"; then
+if ! test -f "$HOME/Tools/nomachine_7.7.4_1_amd64.deb"; then
     echo "Downloading NoMachine"
-    wget https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb -O $HOME/nomachine_7.7.4_1_amd64.deb >> /dev/null
-    echo "Downloaded NoMachine"
+    wget https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb -O $HOME/Tools/nomachine_7.7.4_1_amd64.deb >> /dev/null
+    echo "Downloaded NoMachine $HOME/Tools/"
 else
-    echo "Alreday download NoMachine"
+    echo "Alreday download NoMachine $HOME/Tools/"
 fi
 
 if ! [ -x "$(command -v freq)" ]; then
@@ -453,4 +452,11 @@ else
     echo "Alreday installed freq"
 fi
 
-
+if ! [ -x "$(command -v naabu)" ]; then
+    echo "Installing naabu"
+    sudo apt install -y libpcap-dev &2
+    go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+    echo "Successfully installed naabu"
+else
+    echo "Alreday installed naabu"
+fi
