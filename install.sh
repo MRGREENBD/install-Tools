@@ -106,8 +106,7 @@ fi
 
 if ! [ -x "$(command -v go)" ]; then
     echo "Installing golang 1.18.1"
-    wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz >&2
-    sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz >&2
+    apt install golang
     echo "Successfully installed golang"
 else
     echo "Alreday installed golang"
@@ -225,7 +224,7 @@ else
 fi
 if ! [ -x "$(command -v subzy)" ]; then
     echo "Installing subzy"
-    go install -v github.com/lukasikic/subzy@latest >&2
+    go install -v github.com/LukaSikic/subzy@latest >&2
     echo "Successfully installed subzy"
 else
     echo "Alreday installed naabu"
@@ -436,13 +435,6 @@ fi
 #    echo "Alreday installed xfce4"
 #fi
 
-if ! test -f "$HOME/Tools/nomachine_7.7.4_1_amd64.deb"; then
-    echo "Downloading NoMachine"
-    wget https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb -O $HOME/Tools/nomachine_7.7.4_1_amd64.deb >> /dev/null
-    echo "Downloaded NoMachine $HOME/Tools/"
-else
-    echo "Alreday download NoMachine $HOME/Tools/"
-fi
 
 if ! [ -x "$(command -v freq)" ]; then
     echo "Installing freq"
