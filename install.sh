@@ -57,27 +57,21 @@ else
     echo "Alreday installed python3"
 fi
 
+
+if ! [ -x "$(command -v python3)" ]; then
+    echo "Installing python"
+    sudo apt -y install python3 >&2
+    echo "Successfully installed python3"
+else
+    echo "Alreday installed python3"
+fi
+
 if ! [ -x "$(command -v pip3)" ]; then
     echo "Installing pip3"
     sudo apt -y install python3-pip >&2
     echo "Successfully installed pip3"
 else
     echo "Alreday installed pip3"
-fi
-if ! [ -x "$(command -v python)" ]; then
-    echo "Installing python"
-    sudo apt -y install python >&2
-    echo "Successfully installed python"
-else
-    echo "Alreday installed python"
-fi
-
-if ! [ -x "$(command -v pip)" ]; then
-    echo "Installing pip"
-    sudo apt -y install python-pip >&2
-    echo "Successfully installed pip"
-else
-    echo "Alreday installed pip"
 fi
 if ! [ -x "$(command -v sqlmap)" ]; then
     echo "Installing sqlmap"
@@ -115,7 +109,7 @@ fi
 if test -f "$HOME/.Hasan"; then
     echo "$HOME/.Hasan exists."
 else
-    echo "I01laGVkaSBIYXNhbiBSYWtpYgojaHR0cHM6Ly90d2l0dGVyLmNvbS9NUl9HUkVFTl9CSEQKCiNHb2xhbmcgSW5zdGFsbApleHBvcnQgR08xMTFNT0RVTEU9ImF1dG8iCmV4cG9ydCBQQVRIPSRQQVRIOi91c3IvbG9jYWwvZ28vYmluCmV4cG9ydCBHT1JPT1Q9L3Vzci9sb2NhbC9nbwpleHBvcnQgR09QQVRIPSRIT01FL2dvCmV4cG9ydCBQQVRIPSRHT1BBVEgvYmluOiRHT1JPT1QvYmluOiRIT01FLy5sb2NhbC9iaW46JFBBVEgKCgojU2hvcnRjdXQKYWxpYXMgbG9hZD0nc291cmNlICRIT01FLy5IYXNhbiAnCmFsaWFzIGI9J2NkIH4vRGVza3RvcC9CdWcvJwphbGlhcyBkPSdjZCB+L0Rlc2t0b3AnCmFsaWFzIGNscz0nY2xlYXInCgoKI0FsbCBTdWJEb21haW4gRmluZGVyCgpzdWJ4KCl7CglpZiAhIFsgLWQgIiRIT01FL0Rlc2t0b3AvQnVnLyQxIiBdOyB0aGVuCiAgICAJbWtkaXIgIiRIT01FL0Rlc2t0b3AvQnVnLyQxIgogICAgCWFzc2V0ZmluZGVyIC1zdWJzLW9ubHkgJDEgfGFuZXcgJEhPTUUvRGVza3RvcC9CdWcvJDEvJDEuc3ViWAogICAgCXN1Ymxpc3QzciAtZCAkMSAtbiAtbyAkSE9NRS9EZXNrdG9wL0J1Zy8kMS9zdWJsaXN0M3IuJDEuc3ViWCA+Pi9kZXYvbnVsbAogICAgCXN1YmZpbmRlciAtc2lsZW50IC1kICQxIHxhbmV3ICRIT01FL0Rlc2t0b3AvQnVnLyQxLyQxLnN1YlgKICAgIGVsc2UKICAgIAlhc3NldGZpbmRlciAtc3Vicy1vbmx5ICQxIHxhbmV3ICRIT01FL0Rlc2t0b3AvQnVnLyQxLyQxLnN1YlgKICAgIAlzdWJsaXN0M3IgLWQgJDEgLW4gLW8gJEhPTUUvRGVza3RvcC9CdWcvJDEvc3VibGlzdDNyLiQxLnN1YlggPj4vZGV2L251bGwKICAgIAlzdWJmaW5kZXIgLXNpbGVudCAtZCAkMSB8YW5ldyAkSE9NRS9EZXNrdG9wL0J1Zy8kMS8kMS5zdWJYCglmaQoKCWlmIHRlc3QgLWYgIiRIT01FL0Rlc2t0b3AvQnVnLyQxL3N1Ymxpc3Qzci4kMS5zdWJYIjt0aGVuCgkJY2F0ICIkSE9NRS9EZXNrdG9wL0J1Zy8kMS9zdWJsaXN0M3IuJDEuc3ViWCIgfGFuZXcgJEhPTUUvRGVza3RvcC9CdWcvJDEvJDEuc3ViWAoJCXJtICIkSE9NRS9EZXNrdG9wL0J1Zy8kMS9zdWJsaXN0M3IuJDEuc3ViWCIKCWZpCgoJaWYgdGVzdCAtZiAiJEhPTUUvRGVza3RvcC9CdWcvJDEvJDEuc3ViWCI7dGhlbgoJCWVjaG8gIkZpbmRpbmcgTGl2ZSBEb21haW4iCgkJY2F0ICIkSE9NRS9EZXNrdG9wL0J1Zy8kMS8kMS5zdWJYIiB8aHR0cHggLXNpbGVudHxhbmV3ICRIT01FL0Rlc2t0b3AvQnVnLyQxL2xpdmUuJDEKCWZpCgoJfQoKI0ZpbmQgTEZJCmZpbmRsZmkoKXsKCWlmIFsgLXggIiQoY29tbWFuZCAtdiBodHRweCkiIF07IHRoZW4KCQllY2hvICJGaW5kaW5nIExGSSIKCQlodHRweCAtc2lsZW50IC1uYyAtdCAyNTAgLXAgODAsNDQzLDgwODAsODQ0Myw0NDQzLDg4ODggLXBhdGggIi8vLy8vLy8uLi8uLi8uLi9ldGMvcGFzc3dkIiAtbXIgInJvb3Q6eCIgCgkJaHR0cHggLXNpbGVudCAtbmMgLXQgMjUwIC1wIDgwLDQ0Myw4MDgwLDg0NDMsNDQ0Myw4ODg4IC1wYXRoICIvdjEvZG9jcy8vLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwvZXRjL3Bhc3N3ZCIgLW1yICJyb290OngiIAoJZWxzZQoJICAgIGVjaG8gIlBsZWFzZSBJbnN0YWxsIGh0dHB4IgoJZmkKfQoKI0ZpbmQgWFNTCmZpbmR4c3MoKXsKCWVjaG8gIkZpbmRpbmcgWFNTIgoJaWYgWyAteCAiJChjb21tYW5kIC12IHVyb3xjb21tYW5kIC12IHFzcmVwbGFjZXxjb21tYW5kIC12IGFpcml4c3MpIiBdOyB0aGVuCgkJZ3JlcCAiPSIgfCBlZ3JlcCAtaXYgIi4oanBnfGpwZWd8Z2lmfGNzc3x0aWZ8dGlmZnxwbmd8dHRmfHdvZmZ8d29mZjJ8aWNvbnxwZGZ8c3ZnfHR4dHxqcykiIHwgdXJvIHwgcXNyZXBsYWNlICciPjxpbWcgc3JjPXggb25lcnJvcj1hbGVydCgxKTs+JyB8c29ydCAtdXxhaXJpeHNzIC1wYXlsb2FkICc8aW1nIHNyYz14IG9uZXJyb3I9YWxlcnQoMSk7PicKCWVsc2UKCSAgICBlY2hvICJQbGVhc2UgSW5zdGFsbCB1cm8gLCBxc3JlcGxhY2UgLCBhaXJpeHNzICwiCglmaQp9CgojIENoYW5naW5nIElQIFRPUiBOZXR3b3JrCmlwdG9yKCl7CgkKCWlmIFsgLXggIiQoY29tbWFuZCAtdiB0b3J8Y29tbWFuZCAtdiBjaGFja2lwKSIgXTsgdGhlbgoJICAgIGVjaG8gIlRPUiBQUk9YWSBTRVQgRk9SIFRISVMgVEVSTUVOQUwiCgkgICAgZXhwb3J0IEhUVFBfUFJPWFk9c29ja3M1Oi8vMTI3LjAuMC4xOjkwNTAKCSAgICBleHBvcnQgSFRUUFNfUFJPWFk9c29ja3M1Oi8vMTI3LjAuMC4xOjkwNTAKCSAgICBjaGFja2lwCiAgICBlbHNlCgkgICAgZWNobyAiUGxlYXNlIEluc3RhbGwgdG9yICwgY2hhY2tpcCAiCglmaQp9CgoK" |base64 --decode >> $HOME/.Hasan 
+    echo "CiNNZWhlZGkgSGFzYW4gUmFraWIKI2h0dHBzOi8vdHdpdHRlci5jb20vTVJfR1JFRU5fQkhECgojR29sYW5nIEluc3RhbGwKZXhwb3J0IEdPMTExTU9EVUxFPSJhdXRvIgpleHBvcnQgUEFUSD0kUEFUSDovdXNyL2xvY2FsL2dvL2JpbgpleHBvcnQgR09ST09UPS91c3IvbG9jYWwvZ28KZXhwb3J0IEdPUEFUSD0kSE9NRS9nbwpleHBvcnQgUEFUSD0kR09QQVRIL2JpbjokR09ST09UL2JpbjokSE9NRS8ubG9jYWwvYmluOiRQQVRICgoKI1Nob3J0Y3V0CmFsaWFzIGxvYWQ9J3NvdXJjZSAkSE9NRS8uSGFzYW4gJwphbGlhcyBiPSdjZCB+L0Rlc2t0b3AvQnVnLycKYWxpYXMgZD0nY2Qgfi9EZXNrdG9wJwphbGlhcyBjbHM9J2NsZWFyJwoKCiNBbGwgU3ViRG9tYWluIEZpbmRlcgoKc3VieCgpewoJaWYgISBbIC1kICIkSE9NRS9EZXNrdG9wL0J1Zy8kMSIgXTsgdGhlbgogICAgCW1rZGlyICIkSE9NRS9EZXNrdG9wL0J1Zy8kMSIKICAgIAlhc3NldGZpbmRlciAtc3Vicy1vbmx5ICQxIHxhbmV3ICRIT01FL0Rlc2t0b3AvQnVnLyQxLyQxLnN1YlgKICAgIAlzdWJmaW5kZXIgLXNpbGVudCAtZCAkMSB8YW5ldyAkSE9NRS9EZXNrdG9wL0J1Zy8kMS8kMS5zdWJYCiAgICBlbHNlCiAgICAJYXNzZXRmaW5kZXIgLXN1YnMtb25seSAkMSB8YW5ldyAkSE9NRS9EZXNrdG9wL0J1Zy8kMS8kMS5zdWJYCiAgICAJc3ViZmluZGVyIC1zaWxlbnQgLWQgJDEgfGFuZXcgJEhPTUUvRGVza3RvcC9CdWcvJDEvJDEuc3ViWAoJZmkKCgoJaWYgdGVzdCAtZiAiJEhPTUUvRGVza3RvcC9CdWcvJDEvJDEuc3ViWCI7dGhlbgoJCWVjaG8gIkZpbmRpbmcgTGl2ZSBEb21haW4iCgkJY2F0ICIkSE9NRS9EZXNrdG9wL0J1Zy8kMS8kMS5zdWJYIiB8aHR0cHggLXNpbGVudHxhbmV3ICRIT01FL0Rlc2t0b3AvQnVnLyQxL2xpdmUuJDEKCWZpCgoJfQoKI0ZpbmQgTEZJCmZpbmRsZmkoKXsKCWlmIFsgLXggIiQoY29tbWFuZCAtdiBodHRweCkiIF07IHRoZW4KCQllY2hvICJGaW5kaW5nIExGSSIKCQlodHRweCAtc2lsZW50IC1uYyAtdCAyNTAgLXAgODAsNDQzLDgwODAsODQ0Myw0NDQzLDg4ODggLXBhdGggIi8vLy8vLy8uLi8uLi8uLi9ldGMvcGFzc3dkIiAtbXIgInJvb3Q6eCIgCgkJaHR0cHggLXNpbGVudCAtbmMgLXQgMjUwIC1wIDgwLDQ0Myw4MDgwLDg0NDMsNDQ0Myw4ODg4IC1wYXRoICIvLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwuLlxcXC4uXFxcLi5cXFwvZXRjL3Bhc3N3ZCIgLW1yICJyb290OngiIAoJZWxzZQoJICAgIGVjaG8gIlBsZWFzZSBJbnN0YWxsIGh0dHB4IgoJZmkKfQoKCgojIENoYW5naW5nIElQIFRPUiBOZXR3b3JrCmlwdG9yKCl7CgkKCWlmIFsgLXggIiQoY29tbWFuZCAtdiB0b3J8Y29tbWFuZCAtdiBjaGFja2lwKSIgXTsgdGhlbgoJICAgIGVjaG8gIlRPUiBQUk9YWSBTRVQgRk9SIFRISVMgVEVSTUVOQUwiCgkgICAgZXhwb3J0IEhUVFBfUFJPWFk9c29ja3M1Oi8vMTI3LjAuMC4xOjkwNTAKCSAgICBleHBvcnQgSFRUUFNfUFJPWFk9c29ja3M1Oi8vMTI3LjAuMC4xOjkwNTAKCSAgICBjaGFja2lwCiAgICBlbHNlCgkgICAgZWNobyAiUGxlYXNlIEluc3RhbGwgdG9yICwgY2hhY2tpcCAiCglmaQp9CgoK" |base64 --decode >> $HOME/.Hasan 
     echo "$HOME/.Hasan Added"
     if test -f "$HOME/.bashrc";then
         echo "CnNvdXJjZSAkSE9NRS8uSGFzYW4K"|base64 --decode >> $HOME/.bashrc
@@ -139,13 +133,7 @@ else
     echo "Alreday installed gobuster"
 fi
 
-if ! [ -x "$(command -v gron)" ]; then
-    echo "Installing gron"
-    go install github.com/tomnomnom/gron@latest >&2
-    echo "Successfully installed gron"
-else
-    echo "Alreday installed gron"
-fi
+
 if ! [ -x "$(command -v getJS)" ]; then
     echo "Installing getJS"
     go install github.com/003random/getJS@latest >&2
@@ -154,13 +142,7 @@ else
     echo "Alreday installed getJS"
 fi
 
-if ! [ -x "$(command -v meg)" ]; then
-    echo "Installing meg"
-    go install github.com/tomnomnom/meg@latest >&2
-    echo "Successfully installed meg"
-else
-    echo "Alreday installed meg"
-fi
+
 if ! [ -x "$(command -v gospider)" ]; then
     echo "Installing gospider"
     go install github.com/jaeles-project/gospider@latest >&2
@@ -169,36 +151,6 @@ else
     echo "Alreday installed gospider"
 fi
 
-if ! [ -x "$(command -v webshot)" ]; then
-    echo "Installing webshot"
-    wget https://github.com/MRGREENBD/webshot/raw/main/webshot -O $HOME/go/bin/webshot >&2
-    sudo chmod +x $HOME/go/bin/webshot
-    echo "Successfully installed webshot"
-else
-    echo "Alreday installed webshot"
-fi
-if ! [ -x "$(command -v subjs)" ]; then
-    echo "Installing subjs"
-    go install github.com/lc/subjs@latest >&2
-    echo "Successfully installed subjs"
-else
-    echo "Alreday installed subjs"
-fi
-
-if ! [ -x "$(command -v fff)" ]; then
-    echo "Installing fff"
-    go install github.com/tomnomnom/fff@latest >&2
-    echo "Successfully installed fff"
-else
-    echo "Alreday installed fff"
-fi
-if ! [ -x "$(command -v httprobe)" ]; then
-    echo "Installing httprobe"
-    go install github.com/tomnomnom/httprobe@latest >&2
-    echo "Successfully installed httprobe"
-else
-    echo "Alreday installed httprobe"
-fi
 
 if ! [ -x "$(command -v waybackurls)" ]; then
     echo "Installing waybackurls"
@@ -215,28 +167,8 @@ else
     echo "Alreday installed ffuf"
 fi
 
-if ! [ -x "$(command -v dalfox)" ]; then
-    echo "Installing dalfox"
-    go install github.com/hahwul/dalfox/v2@latest >&2
-    echo "Successfully installed dalfox"
-else
-    echo "Alreday installed dalfox"
-fi
-if ! [ -x "$(command -v subzy)" ]; then
-    echo "Installing subzy"
-    go install -v github.com/LukaSikic/subzy@latest >&2
-    echo "Successfully installed subzy"
-else
-    echo "Alreday installed naabu"
-fi
 
-if ! [ -x "$(command -v gau)" ]; then
-    echo "Installing gau"
-    go install github.com/lc/gau@latest >&2
-    echo "Successfully installed gau"
-else
-    echo "Alreday installed gau"
-fi
+
 if ! [ -x "$(command -v subfinder)" ]; then
     echo "Installing subfinder"
     go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest >&2
@@ -272,13 +204,7 @@ if ! [ -x "$(command -v anew)" ]; then
 else
     echo "Alreday installed anew"
 fi
-if ! [ -x "$(command -v gf)" ]; then
-    echo "Installing gf"
-    go install github.com/tomnomnom/gf@latest >&2
-    echo "Successfully installed "
-else
-    echo "Alreday installed gf"
-fi
+
 
 if ! [ -x "$(command -v grecon)" ]; then
     echo "Installing grecon"
@@ -297,67 +223,23 @@ if ! [ -x "$(command -v gitrecon)" ]; then
 else
     echo "Alreday installed gitrecon"
 fi
-if ! [ -x "$(command -v airixss)" ]; then
-    echo "Installing airixss"
-    go get -u github.com/chromedp/chromedp >&2
-    go get -u github.com/ferreiraklet/airixss >&2
-    echo "Successfully installed airixss"
-else
-    echo "Alreday installed airixss"
-fi
-if ! [ -x "$(command -v sublist3r)" ]; then
-    echo "Installing sublist3r"
-    sudo pip install sublist3r >&2
-    sudo pip3 install sublist3r >&2
-    echo "Successfully installed sublist3r"
-else
-    echo "Alreday installed sublist3r"
-fi
+
 if ! [ -x "$(command -v arjun)" ]; then
     echo "Installing arjun"
-    sudo pip install arjun >&2
-    sudo pip3 install arjun >&2
+    sudo apt install arjun >&2
     echo "Successfully installed arjun"
 else
     echo "Alreday installed arjun"
 fi
-if ! [ -x "$(command -v dirsearch)" ]; then
-    echo "Installing dirsearch"
-    sudo pip install dirsearch >&2
-    sudo pip3 install dirsearch >&2
-    echo "Successfully installed dirsearch"
-else
-    echo "Alreday installed dirsearch"
-fi
-if ! [ -x "$(command -v uro)" ]; then
-    echo "Installing uro"
-    sudo pip install uro >&2
-    sudo pip3 install uro >&2
-    echo "Successfully installed uro"
-else
-    echo "Alreday installed uro"
-fi
-#if ! [ -x "$(command -v firefox)" ]; then
-#    echo "Installing firefox"
-#    sudo apt -y install firefox >&2
-#    echo "Successfully installed firefox"
-#else
-#    echo "Alreday installed firefox"
-#fi
+
 if ! [ -x "$(command -v assetfinder)" ]; then
     echo "Installing assetfinder"
-    go get -u github.com/tomnomnom/assetfinder >&2
+    go install github.com/tomnomnom/assetfinder@latest >&2
     echo "Successfully installed assetfinder"
 else
     echo "Alreday installed assetfinder"
 fi
-if ! [ -x "$(command -v subjack)" ]; then
-    echo "Installing subjack"
-    go get github.com/haccer/subjack >&2
-    echo "Successfully installed subjack"
-else
-    echo "Alreday installed subjack"
-fi
+
 if ! [ -x "$(command -v tor)" ]; then
     echo "Installing tor"
     sudo apt -y install tor >&2
@@ -365,6 +247,7 @@ if ! [ -x "$(command -v tor)" ]; then
 else
     echo "Alreday installed tor"
 fi
+
 if test -f "$HOME/tor"; then
     echo "$HOME/tor exists."
 else
@@ -425,30 +308,4 @@ else
     echo "IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwppbXBvcnQgc3NsLCBzb2NrZXQgLHN5cwppbXBvcnQgdXJsbGliLnBhcnNlCgoKZGVmIFNTTGluZm8oRG9tYWluKToKCXRyeToKCQlpZiAiOi8vIiBpbiBEb21haW46CgkJCURvbWFpbiA9IERvbWFpbi5zcGxpdCgnOi8vJylbMV0KCQllbHNlOgoJCQlEb21haW4gPSBEb21haW4KCQlEb21haW4gPSBEb21haW4uc3RyaXAoKQoJCVNTTCA9IHNzbC5jcmVhdGVfZGVmYXVsdF9jb250ZXh0KCkKCQlHbyA9IFNTTC53cmFwX3NvY2tldChzb2NrZXQuc29ja2V0KCksIHNlcnZlcl9ob3N0bmFtZT1Eb21haW4pCgkJR28uY29ubmVjdCgoRG9tYWluLCA0NDMpKQoJCVNTTE5hbWUgPSBHby5nZXRwZWVyY2VydCgpCgkJI3ByaW50KFNTTE5hbWUpCgkJdHJ5OgoJCQlEZXRpbHMgPSBbZGljdChOYW1lWzBdIGZvciBOYW1lIGluIFNTTE5hbWVbJ3N1YmplY3QnXSksZGljdChOYW1lWzBdIGZvciBOYW1lIGluIFNTTE5hbWVbJ2lzc3VlciddKV0KCQkJZm9yIE5hbWUgaW4gRGV0aWxzOgoJCQkJcHJpbnQoIkRvbWFpbiA6ICIrRG9tYWluICsiXG5Pcmdhbml6YXRpb24gOiAiK05hbWVbJ29yZ2FuaXphdGlvbk5hbWUnXSwiXG5Db3VudHJ5IDogIitOYW1lWydjb3VudHJ5TmFtZSddKQoJCQkJcHJpbnQoIkNSVCA6IGh0dHBzOi8vY3J0LnNoLz9PPSIrdXJsbGliLnBhcnNlLnF1b3RlKE5hbWVbJ29yZ2FuaXphdGlvbk5hbWUnXSkpCgkJCQlwcmludCgiU0hPREFOIDogaHR0cHM6Ly93d3cuc2hvZGFuLmlvL3NlYXJjaD9xdWVyeT1zc2w6JyIrdXJsbGliLnBhcnNlLnF1b3RlKE5hbWVbJ29yZ2FuaXphdGlvbk5hbWUnXSkrIiciKQoJCQkJcHJpbnQoIlNIT0RBTiA6IGh0dHBzOi8vd3d3LnNob2Rhbi5pby9zZWFyY2g/cXVlcnk9U3NsLmNlcnQuc3ViamVjdC5DTjonIitEb21haW4rIidcbiIpCgoJCWV4Y2VwdDoKCQkJRGV0aWxzID0gZGljdChOYW1lWzBdIGZvciBOYW1lIGluIFNTTE5hbWVbJ2lzc3VlciddKQoJCQlwcmludCgiRG9tYWluIDogIitEb21haW4gKyJcbk9yZ2FuaXphdGlvbiA6ICIrRGV0aWxzWydvcmdhbml6YXRpb25OYW1lJ10sIlxuQ291bnRyeSA6ICIrRGV0aWxzWydjb3VudHJ5TmFtZSddKQoJCQlwcmludCgiQ1JUIDogaHR0cHM6Ly9jcnQuc2gvP089Iit1cmxsaWIucGFyc2UucXVvdGUoRGV0aWxzWydvcmdhbml6YXRpb25OYW1lJ10pKQoJCQlwcmludCgiU0hPREFOIDogaHR0cHM6Ly93d3cuc2hvZGFuLmlvL3NlYXJjaD9xdWVyeT1zc2w6JyIrdXJsbGliLnBhcnNlLnF1b3RlKERldGlsc1snb3JnYW5pemF0aW9uTmFtZSddKSsiJyIpCgkJCXByaW50KCJTSE9EQU4gOiBodHRwczovL3d3dy5zaG9kYW4uaW8vc2VhcmNoP3F1ZXJ5PVNzbC5jZXJ0LnN1YmplY3QuQ046JyIrRG9tYWluKyInXG4iKQoKCQkJcGFzcwoJCUROU1MgPSBbXQoJCWZvciBETlMgaW4gU1NMTmFtZVsnc3ViamVjdEFsdE5hbWUnXToKCQkJRE5TID0gRE5TWzFdCgkJCWlmICIqLiIgaW4gRE5TOgoJCQkJRE5TID0gRE5TLnJlcGxhY2UoIiouIiwiIikKCQkJRE5TUy5hcHBlbmQoRE5TKQoJCUROU1MgPSBzZXQoRE5TUykKCQlwcmludCgnIycqMjUpCgkJTnVtID0gMAoJCWZvciBVUkwgaW4gRE5TUzoKCQkJTnVtKz0xCgkJCXByaW50KCJETlMtIitzdHIoTnVtKSsnOiBodHRwczovLycrVVJMKQoJCQlvcGVuKCJEb21haW5TU0wudHh0IiwiYSIpLndyaXRlKCdodHRwczovLycrVVJMKydcbicpCgoJCXByaW50KCJcbiIpCglleGNlcHQ6CgkJcHJpbnQoIkZhaWwgOiAiK0RvbWFpbikKCQlwYXNzCgoKCmlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6Cgl0cnk6CgkJRG9tYWluID0gc3lzLmFyZ3ZbMV0KCQlEb21haW5zID0gb3BlbihEb21haW4pLnJlYWRsaW5lcygpCgkJZm9yIERvbWFpbiBpbiBEb21haW5zOgoJCQlTU0xpbmZvKERvbWFpbikKCWV4Y2VwdCBGaWxlTm90Rm91bmRFcnJvcjoKCQlwcmludChEb21haW4gKyAiIEZpbGUgTm90IEZvdW5kIikKCWV4Y2VwdCBJbmRleEVycm9yOgoJCXRyeToKCQkJRG9tYWlucyA9IHN5cy5zdGRpbi5yZWFkbGluZXMoKQoJCQlpZiBsZW4oRG9tYWlucykgPDE6CgkJCQlvcy5fZXhpdCgxKQoJCQlmb3IgRG9tYWluIGluIERvbWFpbnM6CgkJCQlTU0xpbmZvKERvbWFpbikKCQlleGNlcHQgS2V5Ym9hcmRJbnRlcnJ1cHQ6CgkJCW9zLl9leGl0KDEpCg==" |base64 --decode >> $HOME/go/bin/sslinfo
     sudo chmod +x $HOME/go/bin/sslinfo
     echo "$HOME/go/bin/sslinfo Added"
-fi
-
-#if ! [ -x "$(command -v xfce4)" ]; then
-#    echo "Installing xfce4"
-#    sudo apt -y install xfce4 xfce4-goodies >&2
-#    echo "Successfully installed xfce4"
-#else
-#    echo "Alreday installed xfce4"
-#fi
-
-
-if ! [ -x "$(command -v freq)" ]; then
-    echo "Installing freq"
-    go get -u github.com/takshal/freq
-    echo "Successfully installed freq"
-else
-    echo "Alreday installed freq"
-fi
-
-if ! [ -x "$(command -v naabu)" ]; then
-    echo "Installing naabu"
-    sudo apt install -y libpcap-dev &2
-    go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
-    echo "Successfully installed naabu"
-else
-    echo "Alreday installed naabu"
 fi
